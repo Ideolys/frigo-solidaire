@@ -1,1 +1,35 @@
-Hello World
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type"    content="text/html; charset=utf-8">
+    
+     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+      <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+    <title>
+      Frigo solidaire map
+    </title>
+    <style>
+      #mapid { 
+        position: fixed;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mapid">
+    </div>
+    <script>
+       var map = L.map('mapid', {
+          center: [46.969469, 2.599412],
+          zoom: 7
+      });
+      L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar'}).addTo(map);
+      L.marker([46.969469, 2.599412]).addTo(map)
+        .bindPopup('Restaurant titi')
+        .openPopup();
+    </script>
+  </body>
+</html>
